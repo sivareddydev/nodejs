@@ -19,8 +19,8 @@ var request = require('request')
 var bodyParser = require('body-parser')
 var app = express()
 
-var guestbookendpoint = 'http://192.168.56.101:8085/api/messages'
-var helloendpoint = 'http://192.168.56.102:8085/api/hello/'
+var guestbookendpoint = 'http://192.168.56.101:8080/api/messages'
+var helloendpoint = 'http://192.168.56.102:8080/api/hello/'
 
 // Creates a $request callback using $express objects
 var defaultHandling = function(res, next) {
@@ -77,7 +77,7 @@ app.get('/api/hello/:name', function(req, res, next) {
   }, defaultHandling(res, next))
 });
 
-var server = app.listen(8085, '0.0.0.0', function() {
+var server = app.listen(8080, '0.0.0.0', function() {
   var host = server.address().address
   var port = server.address().port
 
