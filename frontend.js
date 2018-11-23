@@ -19,8 +19,8 @@ var request = require('request')
 var bodyParser = require('body-parser')
 var app = express()
 
-var guestbookendpoint = 'http://neotriger.tech:8080/api/messages'
-var helloendpoint = 'http://neotriger.tech:8080/api/hello/'
+var guestbookendpoint = 'http://192.168.56.101:8080/api/messages'
+var helloendpoint = 'http://192.168.56.102:8080/api/hello/'
 
 // Creates a $request callback using $express objects
 var defaultHandling = function(res, next) {
@@ -63,7 +63,7 @@ app.get('/api/messages', function(req, res, next) {
   // Get messages from guestbook endpoint
   request({
     'url' : guestbookendpoint,
-    "timeout" : 1500
+    "timeout" : 15000
   }, defaultHandling(res, next))
 });
 
@@ -73,7 +73,7 @@ app.get('/api/hello/:name', function(req, res, next) {
   // Get the hello world message from helloworld-vertx endpoint
   request({
     'url' : dest,
-    'timeout' : 15000
+    'timeout' : 150000
   }, defaultHandling(res, next))
 });
 
