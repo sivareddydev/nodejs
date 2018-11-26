@@ -11,7 +11,7 @@ WORKDIR /opt/app-root/src
 
 #RUN ["/bin/bash", "-c", "npm install"]
 
-EXPOSE 8085
+EXPOSE 8080
 
 CMD /bin/bash -c 'npm start'
 
